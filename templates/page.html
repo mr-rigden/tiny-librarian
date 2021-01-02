@@ -1,0 +1,38 @@
+{% include 'top.html' %}
+<main onclick="hideMenus()">
+  <div class="content-container">
+    <div class="content">
+      <div class="content-header">
+        <h1>{{page.title}}</h1>
+        <p class="bold clean-link">
+          {% if page.author %}
+            {{page.author}}
+          {% else%}
+            {{site.config.default_author}}
+          {% endif %}
+        </p>
+        <p>{{page.updated.strftime('%B %-d, %Y')}}</p>
+      </div>
+      <div class="content-body">
+        {% if page.meta.audio %}
+        <audio controls preload="none">
+          <source src="page.audio" type="audio/mpeg" />
+        </audio>
+        {% endif %} {{page.body}}
+      </div>
+      <div class="content-footer">
+        {% if page.related|length %}
+        <h4>Related</h4>
+        <ul class="clean-list">
+          {% for each in page.related %}
+          <li>
+            <a href="{{site.base_url}}/{{each.slug}}">{{each.title}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</main>
+{% include 'bottom.html' %}

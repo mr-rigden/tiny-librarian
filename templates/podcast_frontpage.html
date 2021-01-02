@@ -1,0 +1,43 @@
+{% include 'top.html' %}
+<main onclick="hideMenus()">
+  <div class="content-container">
+    <div class="content-list">
+      <div class="content-list-header">
+        <div class="podcast-card">
+          <div class="podcast-card-top">
+            <div class="podcast-art">
+              <img src="{{site.config.podcast.cover}}" alt="cover" />
+            </div>
+            <div class="podcast-subs">
+              <h3>Subscribe</h3>
+
+              <ul class="clean-list">
+                {% for link in site.config.podcast.links %}
+                <li>
+                  <a href="{{link.url}}">{{link.name}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="podcast-description">
+            <h1>{{site.config.podcast.title}}</h1>
+            <p>{{site.config.podcast.description}}</p>
+          </div>
+        </div>
+      </div>
+      {% for page in site.pages %}
+      <div class="content">
+        <div class="content-header">
+          <h2>
+            <a href="{{site.base_url}}/{{page.slug}}">{{page.title}}</a>
+          </h2>
+          <p>{{page.updated.strftime('%B %-d, %Y')}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% include 'bottom.html' %}

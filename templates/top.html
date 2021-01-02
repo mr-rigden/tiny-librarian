@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   
+    {% if page %}
+    <title>{{page.title}}</title>
+    <meta name="description" content="{{page.body|striptags|truncate(250, True)}}" />
+    <link rel="canonical" href="{{site.base_url}}/{{page.slug}}" />
+    {% else %}
+    <title>{{site.title}}</title>
+    <meta name="description" content="{{site.description|striptags|truncate(250, True)}}" />
+    <link rel="canonical" href="{{site.base_url}}" />
+    {% endif %}
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{site.base_url}}/assets/img/favicon.ico"/>
+    <link rel="stylesheet" href="{{site.base_url}}/assets/css/normalize.min.css?v=8.0.1" />
+    <link rel="stylesheet" href="{{site.base_url}}/assets/fonts/Poppins/stylesheet.css?v=0.0.1"/>
+    <link rel="stylesheet" href="{{site.base_url}}/assets/fonts/CourierPrime/stylesheet.css?v=0.0.1" />
+    <link rel="stylesheet" href="{{site.base_url}}/assets/css/AstuteZebra.css?v=0.0.1" />
+  </head>
+
+  <body>
+    <header>
+      <div class="ribbon" onclick="toggleTopMenu()">{{site.title}}</div>
+      <div id="top-menu" class="ribbon hidden menu">
+        <ul class="clean-list">
+            {% for link in site.config.top_menu %}
+            <li>
+                <a href="{{link.url}}">{{link.name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+      </div>
+    </header>

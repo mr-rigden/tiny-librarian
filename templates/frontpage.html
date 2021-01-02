@@ -1,0 +1,20 @@
+{% include 'top.html' %}
+<main>
+    <div class="content-container">
+        <div class="content-list">
+            <div class="content-list-header">
+            </div>
+            {% for page in site.pages %}
+            <div class="content">
+                <div class="content-header">
+                  <h2>
+                    <a href="{{site.base_url}}/{{page.slug}}">{{page.title}}</a>
+                  </h2>
+                  <p>{{page.updated.strftime('%B %-d, %Y')}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% include 'bottom.html' %}

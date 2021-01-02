@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>{{site.title}}</title>
+    <link>{{site.base_url}}</link>
+    <copyright>{{site.config.copyright}}</copyright>
+    <description>{{site.description}}</description>
+    <generator>{{site.generator}}</generator>
+        {% for page in site.pages %}
+        <item>
+            <title>{{page.title}}</title>
+            <link>{{site.base_url}}/{{page.slug}}</link>
+            <description>{{page.body|striptags|truncate(250, True)}}</description>
+            <pubDate>{{rss_pubDate(page.created)}}</pubDate>
+            <guid>{{site.base_url}}/{{page.slug}}</guid>
+        </item>
+        {% endfor %}
+  </channel>
+</rss>

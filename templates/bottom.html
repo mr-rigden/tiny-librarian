@@ -1,0 +1,16 @@
+
+    <footer>
+        <div id="bottom-menu" class="ribbon hidden menu">
+          <ul class="clean-list">
+            {% for link in site.config.bottom_menu %}
+            <li>
+                <a href="{{link.url}}">{{link.name}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="ribbon" onclick="toggleBottomMenu()">Menu</div>
+      </footer>
+      <script src="/assets/js/AstuteZebra.js?v=0.0.1"></script>
+    </body>
+  </html>
